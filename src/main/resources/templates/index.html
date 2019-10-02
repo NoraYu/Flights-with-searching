@@ -7,6 +7,12 @@
 </head>
 <body>
 <form th:action="@{/processsearch}" method="post">
+    <select name="category">
+        <option value="L">leaving-airport</option>
+        <option value="A">arrival_airport</option>
+        <option value="AA">airline</option>
+       <!-- <option value="B">Both</option>-->
+    </select>
     <input type="text" placeholder="Search.." name="search">
     <button type="submit">Search</button>
 </form>

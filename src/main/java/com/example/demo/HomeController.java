@@ -61,8 +61,11 @@ public class HomeController {
 
 
     @PostMapping("/processsearch")
-    public String searchResult(Model model,@RequestParam(name="search") String search) {
-        model.addAttribute("flights", flightRepository.findByAirline(search));
+    public String searchResult(Model model,@RequestParam(name="search") String search,@RequestParam(name="category") String category) {
+        if(category.equalsIgnoreCase("AA")){model.addAttribute("flights", flightRepository.findByAirline(search));}
+        if(category.equalsIgnoreCase("L")){model.addAttribute("flights",flightRepository.findByLeaving_airport(search));}
+        else if(category.equalsIgnoreCase("A")){model.addAttribute("flights",flightRepository.findByArrival_airport(search));}
+        //else if(category.equalsIgnoreCase("B")){model.addAttribute("flights",flightRepository.findByLeaving_airportAndArrival_airport(search));}
         return "searchlist";
     }
 }
