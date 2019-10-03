@@ -8,8 +8,8 @@
 <body>
 <form th:action="@{/processsearch}" method="post">
     <select name="category">
-        <option value="L">leaving-airport</option>
-        <option value="A">arrival_airport</option>
+        <option value="L">leavingairport</option>
+        <option value="A">arrivalairport</option>
         <option value="AA">airline</option>
        <!-- <option value="B">Both</option>-->
     </select>
@@ -20,9 +20,9 @@
 <h2>All Flights</h2>
 <div th:each="flight : ${flights}">
     <p th:text="${flight.airline}+${flight.id}"></p>
-    <p th:text="${#dates.format(flight.leaving_date, 'dd-MMM-yyyy')}"></p>
-    From: <p th:text="${flight.leaving_airport}"></p>
-    To: <p th:text="${flight.arrival_airport}"></p>
+    <p th:text="${#dates.format(flight.leavingdate, 'dd-MMM-yyyy')}"></p>
+    From: <p th:text="${flight.leavingairport}"></p>
+    To: <p th:text="${flight.arrivalairport}"></p>
     Price: $<p th:text="${flight.price}"></p>
 
 </div>

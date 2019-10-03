@@ -10,9 +10,9 @@
 <a href="/add">add</a>
 <h2>All Flights</h2>
     <p th:text="${flight.airline}+${flight.id}"></p>
-    <p th:text="${#dates.format(flight.leaving_date}, 'dd-MMM-yyyy')}"></p>
-    From: <p th:text="${flight.leaving_airport}"></p>
-    To: <p th:text="${flight.arrival_airport}"></p>
+    <p th:text="${#dates.format(flight.leavingdate}, 'dd-MMM-yyyy')}"></p>
+    From: <p th:text="${flight.leavingairport}"></p>
+    To: <p th:text="${flight.arrivalairport}"></p>
     Price: $<p th:text="${flight.price}"></p>
 
 </div>

@@ -14,17 +14,17 @@ public class Flight {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private Date leaving_date;
-    private String leaving_airport;
-    private String arrival_airport;
+    private Date leavingdate;
+    private String leavingairport;
+    private String arrivalairport;
     private double price;
     private String airline;
 
     public Flight(){}
-    public Flight(Date leaving_date, String leaving_airport, String arrival_airport, double price,String airline){
-     this.leaving_date=leaving_date;
-     this.arrival_airport=arrival_airport;
-     this.leaving_airport=leaving_airport;
+    public Flight(Date leavingdate, String leavingairport, String arrivalairport, double price,String airline){
+     this.leavingdate=leavingdate;
+     this.arrivalairport=arrivalairport;
+     this.leavingairport=leavingairport;
      this.price=price;
      this.airline=airline;
     }
@@ -37,28 +37,28 @@ public class Flight {
         this.id = id;
     }
 
-    public Date getLeaving_date() {
-        return leaving_date;
+    public Date getLeavingdate() {
+        return leavingdate;
     }
 
-    public void setLeaving_date(Date leaving_date) {
-        this.leaving_date = leaving_date;
+    public void setLeavingdate(Date leavingdate) {
+        this.leavingdate = leavingdate;
     }
 
-    public String getLeaving_airport() {
-        return leaving_airport;
+    public String getLeavingairport() {
+        return leavingairport;
     }
 
-    public void setLeaving_airport(String leaving_airport) {
-        this.leaving_airport = leaving_airport;
+    public void setLeavingairport(String leavingairport) {
+        this.leavingairport = leavingairport;
     }
 
-    public String getArrival_airport() {
-        return arrival_airport;
+    public String getArrivalairport() {
+        return arrivalairport;
     }
 
-    public void setArrival_airport(String arrival_airport) {
-        this.arrival_airport = arrival_airport;
+    public void setArrivalairport(String arrivalairport) {
+        this.arrivalairport = arrivalairport;
     }
 
     public double getPrice() {

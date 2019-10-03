@@ -43,13 +43,13 @@ public class HomeController {
     }
 
     @PostMapping("/processflight")
-    public String processForm(@ModelAttribute Flight flight,@RequestParam(name="leaving_date") String leaving_date){
+    public String processForm(@ModelAttribute Flight flight,@RequestParam(name="leavingdate") String leavingdate){
         String pattern = "yyyy-MM-dd";
         try {
-            String formattedDate = leaving_date.substring(1,leaving_date.length()-1);
+            String formattedDate = leavingdate.substring(1,leavingdate.length()-1);
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
             Date realDate = simpleDateFormat.parse(formattedDate);
-            flight.setLeaving_date(realDate);
+            flight.setLeavingdate(realDate);
         }
         catch (java.text.ParseException e){
             e.printStackTrace();
@@ -63,9 +63,9 @@ public class HomeController {
     @PostMapping("/processsearch")
     public String searchResult(Model model,@RequestParam(name="search") String search,@RequestParam(name="category") String category) {
         if(category.equalsIgnoreCase("AA")){model.addAttribute("flights", flightRepository.findByAirline(search));}
-        if(category.equalsIgnoreCase("L")){model.addAttribute("flights",flightRepository.findByLeaving_airport(search));}
-        else if(category.equalsIgnoreCase("A")){model.addAttribute("flights",flightRepository.findByArrival_airport(search));}
-        //else if(category.equalsIgnoreCase("B")){model.addAttribute("flights",flightRepository.findByLeaving_airportAndArrival_airport(search));}
+        if(category.equalsIgnoreCase("L")){model.addAttribute("flights",flightRepository.findByLeavingairport(search));}
+        else if(category.equalsIgnoreCase("A")){model.addAttribute("flights",flightRepository.findByArrivalairport(search));}
+        //else if(category.equalsIgnoreCase("B")){model.addAttribute("flights",flightRepository.findByleavingairportAndarrivalairport(search));}
         return "searchlist";
     }
 }

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:form="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Flight Form</title>
@@ -12,31 +12,32 @@
         <select th:field="*{airline}">
             <option th:value="AA" th:text="AA"></option>
             <option th:value="XX" th:text="XX"></option>
-
-
         </select>
     </label>
-    <input type="hidden" th:field="*{leaving_date}" />
+
     <label>
-        <select th:field="*{leaving_airport}">
+        <select th:field="*{leavingairport}">
         <option th:value="DC" th:text="DC"></option>
             <option th:value="NY" th:text="NY"></option>
             <option th:value="LA" th:text="LA"></option>
-
         </select>
     </label>
     <label>
-        <select th:field="*{arrival_airport}">
+        <select th:field="*{arrivalairport}">
             <option th:value="NY" th:text="NY"></option>
             <option th:value="DC" th:text="DC"></option>
             <option th:value="LA" th:text="LA"></option>
         </select>
     </label>
 
+
     <input type="text" placeholder="price" th:field="*{price}" />
 
-    <input type="date" name="leaving_date" />
+    <input type="hidden" th:field="*{leavingdate}" />
 
+    <label>
+    <input type="date" name="leavingdate"/>
+    </label>
     <input type="submit" onclick="confirmation()" value="Submit">
 </form>
 <!--<script th:src="@{/js/alerts.js}"></script>-->
